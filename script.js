@@ -53,6 +53,28 @@ window.addEventListener('scroll', function() {
     }
 });
 
+// Mobile Menu Toggle
+const mobileMenuOpen = document.getElementById('mobile-menu-open');
+const mobileMenuClose = document.getElementById('mobile-menu-close');
+const mobileMenu = document.getElementById('mobile-menu');
+
+if (mobileMenuOpen && mobileMenuClose && mobileMenu) {
+    mobileMenuOpen.addEventListener('click', () => {
+        mobileMenu.classList.remove('translate-x-full');
+    });
+
+    mobileMenuClose.addEventListener('click', () => {
+        mobileMenu.classList.add('translate-x-full');
+    });
+
+    // Close menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+        });
+    });
+}
+
 // Fade-in-up Intersection Observer
 const observerOptions = {
     threshold: 0.1
