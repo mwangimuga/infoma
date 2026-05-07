@@ -1,251 +1,197 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IT Services | INFOMA</title>
-    <meta name="description"
-        content="Comprehensive IT services including Web Design, Full Stack Development, System Integration, AI, UI/UX, and Infrastructure Setup.">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .service-detail-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
+    <title>IT & Tech Services | INFOMA</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#4CAF50',
+                            red: '#EF4444',
+                            charcoal: '#111111',
+                            offwhite: '#F8F9FA',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    letterSpacing: {
+                        premium: '-0.02em',
+                    }
+                }
+            }
         }
-
-        .service-item {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            border-left: 4px solid var(--primary-green);
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply font-sans bg-brand-offwhite text-brand-charcoal transition-colors duration-300 tracking-premium antialiased;
+            }
+            .dark body {
+                @apply bg-brand-charcoal text-brand-offwhite;
+            }
+            h1, h2, h3, h4 {
+                @apply font-bold tracking-premium text-brand-charcoal dark:text-white;
+            }
         }
-
-        .service-item h3 {
-            margin-bottom: 15px;
-            color: var(--text-black);
-            font-size: 1.4rem;
-        }
-
-        .service-item ul {
-            list-style: disc;
-            padding-left: 20px;
-            color: var(--text-light-gray);
-        }
-
-        .service-item ul li {
-            margin-bottom: 8px;
-        }
-
-        .page-header {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
-            background-size: cover;
-            background-position: center;
-            color: var(--white);
-            padding: 100px 0;
-            text-align: center;
-        }
-
-        .page-header h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
+        @layer components {
+            .glass-nav {
+                @apply fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 rounded-2xl border border-black/5 bg-white/70 backdrop-blur-xl shadow-sm transition-all duration-300;
+            }
+            .dark .glass-nav {
+                @apply bg-black/50 border-white/5;
+            }
+            .nav-link {
+                @apply text-[13px] font-medium opacity-60 hover:opacity-100 transition-opacity uppercase tracking-widest;
+            }
+            .nav-link.active {
+                @apply opacity-100 relative;
+            }
+            .nav-link.active::after {
+                @apply content-[''] absolute -bottom-1 left-0 w-full h-[2px] bg-brand-red;
+            }
+            .service-card {
+                @apply p-10 rounded-3xl border border-black/5 bg-white dark:bg-white/5 dark:border-white/10 transition-all hover:shadow-xl;
+            }
+            .surgical-accent {
+                @apply w-1.5 h-1.5 rounded-full bg-brand-red;
+            }
         }
     </style>
 </head>
-
 <body>
 
-    <!-- Loading Screen -->
-    <div id="loader-wrapper">
-        <div class="loader-content">
-            <div class="loader-logo">
-                <span class="green">INFO</span><span class="white">MA</span>
-            </div>
-            <div class="loader-text">System Initializing...</div>
-            <div class="loader-bar">
-                <div class="loader-progress"></div>
-            </div>
-        </div>
-    </div>
-
     <!-- Navigation -->
-    <header>
-        <div class="container nav-container">
-            <!-- Left Menu -->
-            <ul class="nav-menu nav-left">
-                <li class="nav-item">
-                    <span class="nav-num">01</span>
-                    <a href="index.html">Home</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <span class="nav-num">02</span>
-                    <a href="#">About Us</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="who-we-are.html">Who We Are</a></li>
-                        <li><a href="why-we-exist.html">Why We Exist</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <span class="nav-num">03</span>
-                    <a href="it-services.html" class="active">Our Services</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="it-services.html">IT & Tech</a></li>
-                        <li><a href="digital-services.html">Digital Media</a></li>
-                        <li><a href="consultation.html">Consultation</a></li>
-                    </ul>
-                </li>
-            </ul>
+    <nav class="glass-nav px-8 py-4 flex items-center justify-between">
+            <img src="assets/Infoma Logo white.svg" alt="Infoma Logo" class="h-24 object-contain dark:hidden" />
+            <img src="assets/Infoma Logo black.svg" alt="Infoma Logo" class="h-24 object-contain hidden dark:block" />
+        
+        <ul class="hidden lg:flex items-center gap-10">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="it-services.html" class="nav-link active">IT & Tech</a></li>
+            <li><a href="digital-services.html" class="nav-link">Digital Media</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
 
-            <!-- Center Logo -->
-            <div class="nav-center">
-                <a href="index.html" class="logo">
-                    <span class="green">INFO</span><span class="black">MA</span>
-                </a>
-            </div>
-
-            <!-- Right Menu -->
-            <ul class="nav-menu nav-right">
-                <li class="nav-item">
-                    <span class="nav-num">04</span>
-                    <a href="clients.html">Our Work</a>
-                </li>
-                <li class="nav-item">
-                    <span class="nav-num">05</span>
-                    <a href="careers.html">Careers</a>
-                </li>
-                <li class="nav-item">
-                    <span class="nav-num">06</span>
-                    <a href="contact.html">Contact Us</a>
-                </li>
-            </ul>
-
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-
-            <!-- Mobile Menu Container -->
-            <div class="mobile-menu-container"></div>
+        <div class="flex items-center gap-6">
+            <button id="theme-toggle" class="p-2 opacity-50 hover:opacity-100 transition-opacity">
+                <svg id="theme-toggle-dark-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                <svg id="theme-toggle-light-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+            </button>
         </div>
-    </header>
+    </nav>
 
-    <!-- Page Header -->
-    <section class="page-header">
-        <div class="container">
-            <h1>IT Services & Deliverables</h1>
-            <p>Empowering your business with robust technology solutions.</p>
-        </div>
-    </section>
-
-    <!-- Services List -->
-    <section class="section-padding">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="heading-md">Our Technical Expertise</h2>
-                <p class="sub-heading">We offer a wide range of IT services either on a one-off or retainer basis.</p>
-            </div>
-
-            <div class="service-detail-grid">
-
-                <!-- Development -->
-                <div class="service-item" id="web-design">
-                    <h3><i class="fas fa-code" style="color: var(--primary-green); margin-right: 10px;"></i> Development
-                        & Design</h3>
-                    <ul>
-                        <li><strong>Web Design:</strong> Stunning, responsive websites tailored to your brand.</li>
-                        <li><strong>Full Stack Development:</strong> Custom web applications and software solutions.
-                        </li>
-                        <li><strong>UI/UX Design:</strong> User-centric interfaces and experiences.</li>
-                    </ul>
+    <!-- Split-Screen Hero -->
+    <section class="min-h-screen flex flex-col md:flex-row border-b border-black/5 dark:border-white/5">
+        <!-- Left Side -->
+        <div class="w-full md:w-1/2 flex items-center justify-center p-12 md:p-24 pt-48 md:pt-0">
+            <div class="max-w-md">
+                <div class="flex items-center gap-3 mb-10">
+                    <div class="surgical-accent"></div>
+                    <span class="text-[10px] font-bold uppercase tracking-widest opacity-40">System Architecture</span>
                 </div>
-
-                <!-- Advanced Tech -->
-                <div class="service-item" id="system-integration">
-                    <h3><i class="fas fa-robot" style="color: var(--primary-green); margin-right: 10px;"></i> Advanced
-                        Tech</h3>
-                    <ul>
-                        <li><strong>System Integration:</strong> Connecting your disparate software systems.</li>
-                        <li><strong>AI & Automations:</strong> Leveraging artificial intelligence to streamline
-                            workflows.</li>
-                    </ul>
-                </div>
-
-                <!-- Infrastructure -->
-                <div class="service-item" id="infrastructure">
-                    <h3><i class="fas fa-server" style="color: var(--primary-green); margin-right: 10px;"></i> IT
-                        Infrastructure Setup</h3>
-                    <ul>
-                        <li><strong>Network Design & Setup:</strong> Secure and efficient network architecture.</li>
-                        <li><strong>Email Setup:</strong> Professional email configuration (Google Workspace, O365).
-                        </li>
-                        <li><strong>New Office Setup:</strong> Complete IT fit-out for new locations.</li>
-                        <li><strong>Local Server:</strong> On-premise server installation and maintenance.</li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="index.html" class="logo" style="color: white;">
-                        <span class="green">INFO</span><span style="color: white;">MA</span>
-                    </a>
-                    <p>Your partner in digital transformation and IT excellence.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-8">IT & Tech <span class="text-brand-green">Excellence.</span></h1>
+                <p class="text-lg opacity-50 mb-12 leading-relaxed">
+                    Empowering your business with robust technology solutions. We offer a wide range of IT services either on a one-off or retainer basis.
+                </p>
+                <div class="grid grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-[10px] font-bold uppercase tracking-widest text-brand-red mb-4">Engineering</h4>
+                        <p class="text-xs opacity-40">Full Stack & UI/UX</p>
+                    </div>
+                    <div>
+                        <h4 class="text-[10px] font-bold uppercase tracking-widest text-brand-red mb-4">Foundation</h4>
+                        <p class="text-xs opacity-40">Infrastructure & AI</p>
                     </div>
                 </div>
-                <div class="footer-col">
-                    <h4>IT Services</h4>
-                    <ul>
-                        <li><a href="it-services.html#web-design">Web Design</a></li>
-                        <li><a href="it-services.html#system-integration">System Integration</a></li>
-                        <li><a href="it-services.html#infrastructure">IT Infrastructure</a></li>
-                        <li><a href="consultation.html">Consultation</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Digital Services</h4>
-                    <ul>
-                        <li><a href="digital-services.html#brand-identity">Brand Identity</a></li>
-                        <li><a href="digital-services.html#multimedia">Motion Graphics</a></li>
-                        <li><a href="digital-services.html#social-content">Social Media</a></li>
-                        <li><a href="digital-services.html#social-content">Content Production</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="clients.html">Our Clients</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 INFOMA. All rights reserved.</p>
             </div>
         </div>
-    </footer>
 
-    <!-- Scroll to Top Button -->
-    <button id="scrollTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+        <!-- Right Side -->
+        <div class="w-full md:w-1/2 bg-brand-charcoal dark:bg-black/40 flex items-center justify-center p-12 relative overflow-hidden">
+            <!-- Secondary Logo for Dark Side -->
+            <div class="absolute top-8 left-8 opacity-20">
+                <img src="assets/Infoma Logo black.svg" alt="Logo" class="h-12" />
+            </div>
+            <div class="relative z-10 w-full max-w-lg aspect-square bg-white/5 backdrop-blur-2xl rounded-[40px] border border-white/10 p-12 flex flex-col justify-center shadow-2xl">
+                <div class="space-y-12">
+                    <div class="flex justify-between items-center">
+                        <div class="w-8 h-[1px] bg-brand-green"></div>
+                        <span class="text-[9px] font-mono opacity-30 text-white uppercase tracking-[0.5em]">Network Status: Optimal</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-3 gap-6">
+                        <div class="h-2 rounded-full bg-brand-green/20 overflow-hidden"><div class="h-full bg-brand-green w-3/4"></div></div>
+                        <div class="h-2 rounded-full bg-brand-green/20 overflow-hidden"><div class="h-full bg-brand-green w-1/2"></div></div>
+                        <div class="h-2 rounded-full bg-brand-green/20 overflow-hidden"><div class="h-full bg-brand-green w-full"></div></div>
+                    </div>
+                    
+                    <div class="p-8 border border-white/5 rounded-3xl bg-white/5">
+                        <h3 class="text-white text-xs font-bold uppercase tracking-widest mb-4">Active Deployments</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between text-[10px] text-white/40"><span>Cloud Migration</span><span class="text-brand-green">Done</span></div>
+                            <div class="flex justify-between text-[10px] text-white/40"><span>AI Integration</span><span class="text-brand-green">94%</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Grid Background -->
+            <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 50px 50px;"></div>
+        </div>
+    </section>
+
+    <!-- Capabilities (Extracted Content) -->
+    <section class="py-32 px-8">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="service-card group">
+                    <h3 class="text-xl font-bold mb-6 group-hover:text-brand-green transition-colors">Development & Design</h3>
+                    <ul class="space-y-4 text-sm opacity-50">
+                        <li>• <span class="font-bold">Web Design:</span> Stunning, responsive websites tailored to your brand.</li>
+                        <li>• <span class="font-bold">Full Stack Development:</span> Custom applications and software.</li>
+                        <li>• <span class="font-bold">UI/UX Design:</span> User-centric interfaces and experiences.</li>
+                    </ul>
+                </div>
+
+                <div class="service-card group">
+                    <h3 class="text-xl font-bold mb-6 group-hover:text-brand-green transition-colors">Advanced Tech</h3>
+                    <ul class="space-y-4 text-sm opacity-50">
+                        <li>• <span class="font-bold">System Integration:</span> Connecting disparate software systems.</li>
+                        <li>• <span class="font-bold">AI & Automations:</span> Leveraging AI to streamline workflows.</li>
+                    </ul>
+                </div>
+
+                <div class="service-card group">
+                    <h3 class="text-xl font-bold mb-6 group-hover:text-brand-green transition-colors">Infrastructure</h3>
+                    <ul class="space-y-4 text-sm opacity-50">
+                        <li>• <span class="font-bold">Network Design:</span> Secure and efficient architecture.</li>
+                        <li>• <span class="font-bold">Email Setup:</span> Workspace & O365 configuration.</li>
+                        <li>• <span class="font-bold">New Office Setup:</span> Complete IT fit-out.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simple Footer -->
+    <footer class="py-16 border-t border-black/5 dark:border-white/5 opacity-30 text-[9px] uppercase tracking-[0.4em] font-bold text-center">
+        <p>&copy; 2026 INFOMA Group | IT & Tech Division</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
-
 </html>

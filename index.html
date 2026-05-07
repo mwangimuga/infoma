@@ -1,262 +1,227 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INFOMA | IT Services & Digital Solutions</title>
-    <meta name="description"
-        content="INFOMA provides top-tier IT services, web design, digital marketing, and brand identity solutions to elevate your business.">
-    <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>INFOMA | Premium IT & Digital Services</title>
+    <meta name="description" content="INFOMA provides high-end IT services, digital transformation, and brand identity solutions.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#4CAF50',
+                            red: '#EF4444',
+                            charcoal: '#111111',
+                            offwhite: '#F8F9FA',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    letterSpacing: {
+                        premium: '-0.02em',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply font-sans bg-brand-offwhite text-brand-charcoal transition-colors duration-300 tracking-premium antialiased;
+            }
+            .dark body {
+                @apply bg-brand-charcoal text-brand-offwhite;
+            }
+            h1, h2, h3, h4 {
+                @apply font-bold tracking-premium text-brand-charcoal dark:text-white;
+            }
+        }
+        @layer components {
+            .glass-nav {
+                @apply fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 rounded-2xl border border-black/5 bg-white/70 backdrop-blur-xl shadow-sm transition-all duration-300;
+            }
+            .dark .glass-nav {
+                @apply bg-black/50 border-white/5;
+            }
+            .nav-link {
+                @apply text-[13px] font-medium opacity-60 hover:opacity-100 transition-opacity uppercase tracking-widest;
+            }
+            .nav-link.active {
+                @apply opacity-100 relative;
+            }
+            .nav-link.active::after {
+                @apply content-[''] absolute -bottom-1 left-0 w-full h-[2px] bg-brand-red;
+            }
+            .btn-minimal {
+                @apply px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-widest transition-all duration-300;
+            }
+            .bento-card {
+                @apply relative overflow-hidden rounded-3xl p-10 border border-black/5 bg-white transition-all duration-500 hover:shadow-2xl hover:-translate-y-1;
+            }
+            .dark .bento-card {
+                @apply border-white/5 bg-white/5 backdrop-blur-sm;
+            }
+            .surgical-detail {
+                @apply border-t-2 border-brand-red;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-    <!-- Loading Screen -->
-    <div id="loader-wrapper">
-        <div class="loader-content">
-            <div class="loader-logo">
-                <span class="green">INFO</span><span class="white">MA</span>
-            </div>
-            <div class="loader-text">System Initializing...</div>
-            <div class="loader-bar">
-                <div class="loader-progress"></div>
+    <!-- Navigation -->
+    <nav class="glass-nav px-8 py-4 flex items-center justify-between">
+            <img src="assets/Infoma Logo white.svg" alt="Infoma Logo" class="h-24 object-contain dark:hidden" />
+            <img src="assets/Infoma Logo black.svg" alt="Infoma Logo" class="h-24 object-contain hidden dark:block" />
+        
+        <ul class="hidden lg:flex items-center gap-10">
+            <li><a href="index.html" class="nav-link active">Home</a></li>
+            <li><a href="it-services.html" class="nav-link">IT & Tech</a></li>
+            <li><a href="digital-services.html" class="nav-link">Digital Media</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="flex items-center gap-6">
+            <button id="theme-toggle" class="p-2 opacity-50 hover:opacity-100 transition-opacity">
+                <svg id="theme-toggle-dark-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                <svg id="theme-toggle-light-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+            </button>
+            <a href="contact.html" class="btn-minimal bg-brand-charcoal text-white dark:bg-white dark:text-brand-charcoal">Inquire</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-48 pb-32 overflow-hidden px-8">
+        <div class="container mx-auto">
+            <div class="max-w-4xl fade-in-up">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-1.5 h-1.5 rounded-full bg-brand-red"></div>
+                    <span class="text-[10px] font-bold uppercase tracking-[0.3em] opacity-40">Elite Professional Services</span>
+                </div>
+                <h1 class="text-6xl md:text-8xl font-bold leading-[0.9] mb-10">
+                    Transforming with <span class="text-brand-green">Intelligence</span>.
+                </h1>
+                <p class="text-lg opacity-50 mb-12 max-w-2xl leading-relaxed">
+                    Your partner in digital transformation. We blend technology and creativity to help your business grow. High-end infrastructure meets bespoke creative execution.
+                </p>
+                <div class="flex flex-wrap gap-6">
+                    <a href="#services" class="btn-minimal bg-brand-green text-white">Our Services</a>
+                    <a href="it-services.html" class="btn-minimal border border-black/10 dark:border-white/10 hover:border-brand-green">Technical Depth</a>
+                </div>
             </div>
         </div>
-    </div>
-
-    <!-- Navigation -->
-    <header>
-        <div class="container nav-container">
-            <!-- Left Menu -->
-            <ul class="nav-menu nav-left">
-                <li class="nav-item">
-                    <span class="nav-num">01</span>
-                    <a href="index.html" class="active">Home</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <span class="nav-num">02</span>
-                    <a href="#">About Us</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="who-we-are.html">Who We Are</a></li>
-                        <li><a href="why-we-exist.html">Why We Exist</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <span class="nav-num">03</span>
-                    <a href="#">Our Services</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="it-services.html">IT & Tech</a></li>
-                        <li><a href="digital-services.html">Digital Media</a></li>
-                        <li><a href="consultation.html">Consultation</a></li>
-                    </ul>
-                </li>
-            </ul>
-
-            <!-- Center Logo -->
-            <div class="nav-center">
-                <a href="index.html" class="logo">
-                    <span class="green">INFO</span><span class="black">MA</span>
-                </a>
-            </div>
-
-            <!-- Right Menu -->
-            <ul class="nav-menu nav-right">
-                <li class="nav-item">
-                    <span class="nav-num">04</span>
-                    <a href="clients.html">Our Work</a>
-                </li>
-                <li class="nav-item">
-                    <span class="nav-num">05</span>
-                    <a href="careers.html">Careers</a>
-                </li>
-                <li class="nav-item">
-                    <span class="nav-num">06</span>
-                    <a href="contact.html">Contact Us</a>
-                </li>
-            </ul>
-
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-
-            <!-- Mobile Menu Container -->
-            <div class="mobile-menu-container"></div>
+        
+        <!-- Abstract Decoration -->
+        <div class="absolute -bottom-20 -right-20 w-1/2 h-full opacity-[0.03] dark:opacity-[0.05] pointer-events-none rotate-12">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full scale-150">
+                <path fill="#4CAF50" d="M44.7,-76.4C58.2,-69.2,70,-58.5,78.2,-45.5C86.4,-32.5,91,-16.2,90.4,-0.4C89.7,15.5,83.8,30.9,74.5,43.7C65.2,56.5,52.5,66.6,38.6,73.4C24.7,80.1,9.6,83.5,-5.5,82.9C-20.6,82.4,-35.7,78,-48.8,69.9C-61.9,61.8,-73,50.1,-80.4,36.5C-87.8,22.9,-91.5,7.3,-89.4,-7.6C-87.2,-22.4,-79.3,-36.5,-68.8,-48.1C-58.4,-59.7,-45.3,-68.8,-32.1,-76.2C-18.9,-83.6,-5.5,-89.3,8.4,-90.7C22.3,-92.1,31.2,-83.7,44.7,-76.4Z" transform="translate(100 100)" />
+            </svg>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container hero-content">
-            <h1 class="heading-lg">Transforming Businesses with <span style="color: var(--primary-green);">Smart
-                    IT</span> & <span style="color: var(--primary-green);">Digital Solutions</span></h1>
-            <p>Your partner in digital transformation. We blend technology and creativity to help your business grow.
-            </p>
-            <div class="hero-buttons">
-                <a href="contact.html" class="btn btn-primary">Get Started</a>
-                <a href="it-services.html" class="btn btn-outline">Our Services</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Showcase -->
-    <section class="section-padding services-showcase">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="heading-md">Tailored IT & Digital Solutions</h2>
-                <p class="sub-heading">We provide a comprehensive suite of services designed to elevate your business
-                    technology and brand presence.</p>
+    <!-- Services Overview (Text from Site) -->
+    <section id="services" class="py-32 bg-white dark:bg-brand-charcoal/30 px-8">
+        <div class="container mx-auto">
+            <div class="max-w-xl mb-24">
+                <h2 class="text-4xl font-bold mb-6">Expertise Redefined.</h2>
+                <p class="opacity-50">We provide a comprehensive suite of services designed to elevate your business technology and brand presence.</p>
             </div>
 
-            <div class="showcase-grid">
-                <!-- Left Column (IT & Tech) -->
-                <div class="showcase-col left">
-                    <div class="showcase-item">
-                        <div class="showcase-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h3>Web & Software Development</h3>
-                        <p>From stunning websites to complex full-stack applications, we build digital solutions that
-                            are fast, secure, and user-centric.</p>
-                    </div>
-
-                    <div class="showcase-item">
-                        <div class="showcase-icon">
-                            <i class="fas fa-network-wired"></i>
-                        </div>
-                        <h3>IT Infrastructure</h3>
-                        <p>Complete office setups, robust network design, and server management to ensure your business
-                            operations run without interruption.</p>
-                    </div>
-
-                    <div class="showcase-item">
-                        <div class="showcase-icon">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <h3>AI & Automation</h3>
-                        <p>Leverage the power of AI and system integration to automate workflows, increase efficiency,
-                            and drive innovation.</p>
-                    </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- IT & Tech -->
+                <div class="bento-card surgical-detail group">
+                    <h3 class="text-2xl font-bold mb-6 group-hover:text-brand-green transition-colors">IT & Tech Services</h3>
+                    <p class="text-sm opacity-50 mb-10 leading-relaxed">Empowering your business with robust technology solutions. We offer a wide range of IT services either on a one-off or retainer basis.</p>
+                    <ul class="space-y-4 text-xs font-bold uppercase tracking-widest opacity-40 group-hover:opacity-100 transition-opacity">
+                        <li>• Web & Software Development</li>
+                        <li>• IT Infrastructure</li>
+                        <li>• AI & Automation</li>
+                    </ul>
+                    <a href="it-services.html" class="mt-12 inline-block text-[10px] font-bold uppercase tracking-[0.3em] text-brand-red">Technical Specs →</a>
                 </div>
 
-                <!-- Center Column (Image) -->
-                <div class="showcase-col center">
-                    <div class="showcase-image">
-                        <!-- Using a vector-style illustration similar to the reference -->
-                        <img src="https://cdni.iconscout.com/illustration/premium/thumb/web-development-2974925-2477356.png"
-                            alt="INFOMA Services Illustration">
-                    </div>
-                </div>
-
-                <!-- Right Column (Creative & Digital) -->
-                <div class="showcase-col right">
-                    <div class="showcase-item">
-                        <div class="showcase-icon">
-                            <i class="fas fa-pen-nib"></i>
-                        </div>
-                        <h3>Brand Identity</h3>
-                        <p>Create a lasting impression with unique logos, comprehensive brand guidelines, and creative
-                            graphic design assets.</p>
-                    </div>
-
-                    <div class="showcase-item">
-                        <div class="showcase-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3>Digital Marketing</h3>
-                        <p>Grow your reach with strategic social media management, SEO optimization, and targeted
-                            content that converts.</p>
-                    </div>
-
-                    <div class="showcase-item">
-                        <div class="showcase-icon">
-                            <i class="fas fa-video"></i>
-                        </div>
-                        <h3>Multimedia Production</h3>
-                        <p>Tell your brand story through high-quality animation, motion graphics, corporate photography,
-                            and videography.</p>
-                    </div>
+                <!-- Digital Media -->
+                <div class="bento-card surgical-detail group">
+                    <h3 class="text-2xl font-bold mb-6 group-hover:text-brand-green transition-colors">Digital & Creative Services</h3>
+                    <p class="text-sm opacity-50 mb-10 leading-relaxed">Building your brand with creativity and strategic communication. Enhance your market presence with our comprehensive digital solutions.</p>
+                    <ul class="space-y-4 text-xs font-bold uppercase tracking-widest opacity-40 group-hover:opacity-100 transition-opacity">
+                        <li>• Brand Identity</li>
+                        <li>• Digital Marketing</li>
+                        <li>• Multimedia Production</li>
+                    </ul>
+                    <a href="digital-services.html" class="mt-12 inline-block text-[10px] font-bold uppercase tracking-[0.3em] text-brand-red">Creative Specs →</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About/Why Us Section -->
-    <section class="section-padding about-preview">
-        <div class="container about-grid">
-            <div class="about-image">
-                <!-- Placeholder for an office or team image -->
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                    alt="INFOMA Team">
+    <!-- Portfolio Container -->
+    <section class="py-32 px-8">
+        <div class="container mx-auto">
+            <div class="flex justify-between items-end mb-20">
+                <h2 class="text-3xl font-bold">Selected Artifacts</h2>
+                <div class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest opacity-30">
+                    Live Feed <div class="w-1.5 h-1.5 rounded-full bg-brand-green animate-pulse"></div>
+                </div>
             </div>
-            <div class="about-text">
-                <h2 class="heading-md">Why Choose INFOMA?</h2>
-                <p>We embrace the rapid evolution of technology to deliver innovative and impactful solutions. Whether
-                    you need a one-time project or a long-term partner, we tailor our services to meet your unique
-                    goals.</p>
-                <a href="who-we-are.html" class="btn btn-primary" style="margin-top: 20px;">Learn More About Us</a>
+            
+            <div class="portfolio-container border border-black/5 dark:border-white/5 rounded-[40px] bg-brand-offwhite dark:bg-black/20 p-10 min-h-[500px] flex items-center justify-center">
+                <div class="text-center opacity-20">
+                    <p class="text-xs uppercase tracking-[0.5em] font-bold">[EMBED_PORTFOLIO]</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="index.html" class="logo" style="color: white;">
-                        <span class="green">INFO</span><span style="color: white;">MA</span>
-                    </a>
-                    <p>Your partner in digital transformation and IT excellence.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                    </div>
+    <!-- Minimal Footer -->
+    <footer class="pt-32 pb-16 px-8 border-t border-black/5 dark:border-white/5">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-24 mb-32">
+                <div>
+                    <img src="assets/Infoma Logo white.svg" alt="Infoma Logo" class="h-12 mb-8 opacity-50 dark:hidden" />
+                    <img src="assets/Infoma Logo black.svg" alt="Infoma Logo" class="h-12 mb-8 opacity-50 hidden dark:block" />
+                    <p class="text-sm opacity-40 max-w-xs">Your partner in digital transformation and IT excellence. Professional services for the discerning enterprise.</p>
                 </div>
-                <div class="footer-col">
-                    <h4>IT Services</h4>
-                    <ul>
-                        <li><a href="it-services.html#web-design">Web Design</a></li>
-                        <li><a href="it-services.html#system-integration">System Integration</a></li>
-                        <li><a href="it-services.html#infrastructure">IT Infrastructure</a></li>
-                        <li><a href="consultation.html">Consultation</a></li>
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-widest mb-10 opacity-30">Digital Nexus</h4>
+                    <ul class="space-y-4 text-sm opacity-50">
+                        <li><a href="it-services.html" class="hover:text-brand-green">Infrastructure</a></li>
+                        <li><a href="digital-services.html" class="hover:text-brand-green">Creative Studio</a></li>
+                        <li><a href="contact.html" class="hover:text-brand-green">Strategic Inquiry</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h4>Digital Services</h4>
-                    <ul>
-                        <li><a href="digital-services.html#brand-identity">Brand Identity</a></li>
-                        <li><a href="digital-services.html#multimedia">Motion Graphics</a></li>
-                        <li><a href="digital-services.html#social-content">Social Media</a></li>
-                        <li><a href="digital-services.html#social-content">Content Production</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="clients.html">Our Clients</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                    </ul>
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-widest mb-10 opacity-30">Global Base</h4>
+                    <p class="text-sm opacity-50 leading-loose">
+                        Nairobi, Kenya<br>
+                        hello@infoma.tech<br>
+                        +254 700 123 456
+                    </p>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 INFOMA. All rights reserved.</p>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center opacity-20 text-[9px] uppercase tracking-[0.4em] font-bold">
+                <p>&copy; 2026 INFOMA Group. All rights reserved.</p>
+                <div class="flex gap-12 mt-4 md:mt-0">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Scroll to Top Button -->
-    <button id="scrollTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
-
     <script src="script.js"></script>
 </body>
-
 </html>

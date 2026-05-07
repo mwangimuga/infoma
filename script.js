@@ -1,122 +1,96 @@
-// Wait for window load
-// Wait for window load
-window.addEventListener('load', function () {
-    const loader = document.getElementById('loader-wrapper');
+// Dark Mode Toggle Logic
+const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+const themeToggleBtn = document.getElementById('theme-toggle');
 
-    // Remove loader immediately after load
-    loader.classList.add('fade-out');
-
-    // Remove from DOM after transition
-    setTimeout(() => {
-        loader.style.display = 'none';
-    }, 500);
-});
-
-// Navigation Logic
-document.addEventListener('DOMContentLoaded', function () {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu'); // This might need adjustment based on new structure
-    const mobileMenuContainer = document.querySelector('.mobile-menu-container');
-    const navLeft = document.querySelector('.nav-left');
-    const navRight = document.querySelector('.nav-right');
-    const body = document.body;
-
-    // Toggle Mobile Menu
-    if (hamburger) {
-        hamburger.addEventListener('click', function () {
-            hamburger.classList.toggle('active');
-            mobileMenuContainer.classList.toggle('active');
-            body.classList.toggle('no-scroll');
-        });
+if (themeToggleBtn) {
+    // Change the icons inside the button based on previous settings
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+        themeToggleLightIcon.classList.remove('hidden');
+    } else {
+        document.documentElement.classList.remove('dark');
+        themeToggleDarkIcon.classList.remove('hidden');
     }
 
-    // Mobile Menu Structure Handling
-    function handleMobileMenu() {
-        if (window.innerWidth <= 992) {
-            // Move menus to mobile container if not already there
-            if (!mobileMenuContainer.contains(navLeft) && navLeft) {
-                mobileMenuContainer.appendChild(navLeft);
-            }
-            if (!mobileMenuContainer.contains(navRight) && navRight) {
-                mobileMenuContainer.appendChild(navRight);
+    themeToggleBtn.addEventListener('click', function() {
+        // Toggle icons
+        themeToggleDarkIcon.classList.toggle('hidden');
+        themeToggleLightIcon.classList.toggle('hidden');
+
+        // Toggle Theme
+        if (localStorage.getItem('color-theme')) {
+            if (localStorage.getItem('color-theme') === 'light') {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
             }
         } else {
-            // Move menus back to main header
-            const navContainer = document.querySelector('.nav-container');
-            const navCenter = document.querySelector('.nav-center');
-
-            if (navContainer && navCenter) {
-                if (navContainer.contains(mobileMenuContainer)) {
-                    // Insert navLeft before navCenter
-                    if (!navContainer.contains(navLeft) && navLeft) {
-                        navContainer.insertBefore(navLeft, navCenter);
-                    }
-                    // Insert navRight after navCenter (before hamburger)
-                    if (!navContainer.contains(navRight) && navRight) {
-                        navContainer.insertBefore(navRight, hamburger);
-                    }
-                }
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
             }
         }
+    });
+}
+
+// Scroll Effects for Glass Nav
+window.addEventListener('scroll', function() {
+    const nav = document.querySelector('.glass-nav');
+    if (nav) {
+        if (window.scrollY > 50) {
+            nav.classList.add('py-2', 'w-[98%]', 'top-2');
+            nav.classList.remove('py-4', 'w-[95%]', 'top-4');
+        } else {
+            nav.classList.remove('py-2', 'w-[98%]', 'top-2');
+            nav.classList.add('py-4', 'w-[95%]', 'top-4');
+        }
     }
-
-    // Initial check
-    handleMobileMenu();
-
-    // Listen for resize
-    window.addEventListener('resize', handleMobileMenu);
-
-    // Mobile Dropdown Toggle
-    const dropdowns = document.querySelectorAll('.dropdown');
-
-    dropdowns.forEach(dropdown => {
-        const link = dropdown.querySelector('a');
-
-        link.addEventListener('click', function (e) {
-            if (window.innerWidth <= 992) {
-                // If it's a mobile view, toggle the dropdown
-                // Prevent default only if we want to stop navigation on parent click
-                // For now, let's assume clicking the parent toggles the menu
-                e.preventDefault();
-                dropdown.classList.toggle('active');
-            }
-        });
-    });
-
-    // Close mobile menu when clicking a link (that isn't a dropdown toggle)
-    const navLinks = document.querySelectorAll('.nav-item:not(.dropdown) a, .dropdown-menu a');
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', function () {
-            if (window.innerWidth <= 992) {
-                hamburger.classList.remove('active');
-                mobileMenuContainer.classList.remove('active');
-                body.classList.remove('no-scroll');
-            }
-        });
-    });
 });
 
-// Scroll to Top Button
-const scrollTopBtn = document.getElementById("scrollTopBtn");
-
-window.onscroll = function () {
-    scrollFunction();
+// Fade-in-up Intersection Observer
+const observerOptions = {
+    threshold: 0.1
 };
 
-function scrollFunction() {
-    if (scrollTopBtn) {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            scrollTopBtn.style.display = "block";
-        } else {
-            scrollTopBtn.style.display = "none";
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('opacity-100', 'translate-y-0');
+            entry.target.classList.remove('opacity-0', 'translate-y-10');
         }
-    }
-}
-
-if (scrollTopBtn) {
-    scrollTopBtn.addEventListener("click", function () {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
     });
-}
+}, observerOptions);
+
+document.querySelectorAll('.fade-in-up').forEach(el => {
+    el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+    observer.observe(el);
+});
+
+// Bento Card Parallax (Desktop)
+document.querySelectorAll('.bento-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        if (window.innerWidth > 1024) {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 30;
+            const rotateY = (centerX - x) / 30;
+            
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
+        }
+    });
+    
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)`;
+    });
+});
