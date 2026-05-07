@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | INFOMA</title>
+    <meta name="description"
+        content="Get in touch with Infoma for your IT and digital marketing needs. We are here to help you grow.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 40px;
+        }
+
+        .contact-info-box {
+            background: var(--off-white);
+            padding: 40px;
+            border-radius: 10px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-green);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .info-content h4 {
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .info-content p {
+            color: var(--text-light-gray);
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-green);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .page-header {
+            background-color: var(--off-white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loader-wrapper">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <span class="green">INFO</span><span class="white">MA</span>
+            </div>
+            <div class="loader-text">System Initializing...</div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container nav-container">
+            <!-- Left Menu -->
+            <ul class="nav-menu nav-left">
+                <li class="nav-item">
+                    <span class="nav-num">01</span>
+                    <a href="index.html">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <span class="nav-num">02</span>
+                    <a href="#">About Us</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="who-we-are.html">Who We Are</a></li>
+                        <li><a href="why-we-exist.html">Why We Exist</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <span class="nav-num">03</span>
+                    <a href="#">Our Services</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="it-services.html">IT & Tech</a></li>
+                        <li><a href="digital-services.html">Digital Media</a></li>
+                        <li><a href="consultation.html">Consultation</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- Center Logo -->
+            <div class="nav-center">
+                <a href="index.html" class="logo">
+                    <span class="green">INFO</span><span class="black">MA</span>
+                </a>
+            </div>
+
+            <!-- Right Menu -->
+            <ul class="nav-menu nav-right">
+                <li class="nav-item">
+                    <span class="nav-num">04</span>
+                    <a href="clients.html">Our Work</a>
+                </li>
+                <li class="nav-item">
+                    <span class="nav-num">05</span>
+                    <a href="careers.html">Careers</a>
+                </li>
+                <li class="nav-item">
+                    <span class="nav-num">06</span>
+                    <a href="contact.html" class="active">Contact Us</a>
+                </li>
+            </ul>
+
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <!-- Mobile Menu Container -->
+            <div class="mobile-menu-container"></div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="heading-lg">Get In Touch</h1>
+            <p class="sub-heading">Ready to start your project? We'd love to hear from you.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="contact-wrapper">
+
+                <!-- Contact Info -->
+                <div class="contact-info-box">
+                    <h2 class="heading-md">Contact Information</h2>
+                    <p style="margin-bottom: 30px; color: var(--text-light-gray);">Reach out to us for any inquiries or
+                        to schedule a consultation.</p>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="info-content">
+                            <h4>Our Office</h4>
+                            <p>123 Tech Park,
+                                Innovation Drive<br>Nairobi,
+                                Kenya</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="info-content">
+                            <h4>Phone</h4>
+                            <p>+254 700 123 456</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="info-content">
+                            <h4>Email</h4>
+                            <p>info@infoma.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h2 class="heading-md">Send a Message</h2>
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" class="form-control">
+                                <option value="General Inquiry">General Inquiry</option>
+                                <option value="IT Services">IT Services</option>
+                                <option value="Digital Services">Digital Services</option>
+                                <option value="Consultation">Consultation</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" placeholder="How can we help you?"
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="color: white;">
+                        <span class="green">INFO</span><span style="color: white;">MA</span>
+                    </a>
+                    <p>Your partner in digital transformation and IT excellence.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>IT Services</h4>
+                    <ul>
+                        <li><a href="it-services.html#web-design">Web Design</a></li>
+                        <li><a href="it-services.html#system-integration">System Integration</a></li>
+                        <li><a href="it-services.html#infrastructure">IT Infrastructure</a></li>
+                        <li><a href="consultation.html">Consultation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Digital Services</h4>
+                    <ul>
+                        <li><a href="digital-services.html#brand-identity">Brand Identity</a></li>
+                        <li><a href="digital-services.html#multimedia">Motion Graphics</a></li>
+                        <li><a href="digital-services.html#social-content">Social Media</a></li>
+                        <li><a href="digital-services.html#social-content">Content Production</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="clients.html">Our Clients</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 INFOMA. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultation | INFOMA</title>
+    <meta name="description"
+        content="Expert consultation services including Audits, Trainings, Brand Consultation, Rebranding, and Strategic Growth.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .service-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .service-item {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary-green);
+        }
+
+        .service-item h3 {
+            margin-bottom: 15px;
+            color: var(--text-black);
+            font-size: 1.4rem;
+        }
+
+        .service-item ul {
+            list-style: disc;
+            padding-left: 20px;
+            color: var(--text-light-gray);
+        }
+
+        .service-item ul li {
+            margin-bottom: 8px;
+        }
+
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1553877616-15280d3fd267?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loader-wrapper">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <span class="green">INFO</span><span class="white">MA</span>
+            </div>
+            <div class="loader-text">System Initializing...</div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container nav-container">
+            <!-- Left Menu -->
+            <ul class="nav-menu nav-left">
+                <li class="nav-item">
+                    <span class="nav-num">01</span>
+                    <a href="index.html">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <span class="nav-num">02</span>
+                    <a href="#">About Us</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="who-we-are.html">Who We Are</a></li>
+                        <li><a href="why-we-exist.html">Why We Exist</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <span class="nav-num">03</span>
+                    <a href="#">Our Services</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="it-services.html">IT & Tech</a></li>
+                        <li><a href="digital-services.html">Digital Media</a></li>
+                        <li><a href="consultation.html">Consultation</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- Center Logo -->
+            <div class="nav-center">
+                <a href="index.html" class="logo">
+                    <span class="green">INFO</span><span class="black">MA</span>
+                </a>
+            </div>
+
+            <!-- Right Menu -->
+            <ul class="nav-menu nav-right">
+                <li class="nav-item">
+                    <span class="nav-num">04</span>
+                    <a href="clients.html">Our Work</a>
+                </li>
+                <li class="nav-item">
+                    <span class="nav-num">05</span>
+                    <a href="careers.html">Careers</a>
+                </li>
+                <li class="nav-item">
+                    <span class="nav-num">06</span>
+                    <a href="contact.html">Contact Us</a>
+                </li>
+            </ul>
+
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <!-- Mobile Menu Container -->
+            <div class="mobile-menu-container"></div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Consultation</h1>
+            <p>Expert guidance to elevate your business, technology, and brand.</p>
+        </div>
+    </section>
+
+    <!-- Services List -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="heading-md">Our Consultation Services</h2>
+                <p class="sub-heading">We provide specialized advice and strategies tailored to your unique needs.</p>
+            </div>
+
+            <div class="service-detail-grid">
+
+                <!-- Audits -->
+                <div class="service-item" id="audits">
+                    <h3><i class="fas fa-clipboard-check" style="color: var(--primary-green); margin-right: 10px;"></i>
+                        Audits</h3>
+                    <ul>
+                        <li><strong>IT Infrastructure Audits:</strong> Comprehensive review of your current systems and
+                            security.</li>
+                        <li><strong>Brand Audits:</strong> In-depth analysis of your brand's market position and visual
+                            consistency.</li>
+                        <li><strong>Performance Audits:</strong> Evaluating operational efficiency and digital presence.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Trainings -->
+                <div class="service-item" id="trainings">
+                    <h3><i class="fas fa-chalkboard-teacher"
+                            style="color: var(--primary-green); margin-right: 10px;"></i> Trainings</h3>
+                    <ul>
+                        <li><strong>Corporate Workshops:</strong> Upskilling teams on new software and digital tools.
+                        </li>
+                        <li><strong>Cybersecurity Awareness:</strong> Training staff on best practices and threat
+                            prevention.</li>
+                        <li><strong>Brand Stewardship:</strong> Educating employees on maintaining brand integrity.</li>
+                    </ul>
+                </div>
+
+                <!-- Brand Consultation -->
+                <div class="service-item" id="brand-consultation">
+                    <h3><i class="fas fa-paint-brush" style="color: var(--primary-green); margin-right: 10px;"></i>
+                        Brand Consultation</h3>
+                    <ul>
+                        <li><strong>Visual Identity:</strong> Expert advice on logos, color palettes, and typography.
+                        </li>
+                        <li><strong>Market Research:</strong> Insights into competitor branding and audience
+                            preferences.</li>
+                        <li><strong>Brand Strategy:</strong> Developing a roadmap for long-term brand growth.</li>
+                    </ul>
+                </div>
+
+                <!-- Rebranding -->
+                <div class="service-item" id="rebranding">
+                    <h3><i class="fas fa-sync-alt" style="color: var(--primary-green); margin-right: 10px;"></i>
+                        Rebranding</h3>
+                    <ul>
+                        <li><strong>Strategic Overhaul:</strong> Complete revitalization of your brand identity.</li>
+                        <li><strong>Market Repositioning:</strong> Aligning your brand with new business goals or
+                            audiences.</li>
+                        <li><strong>Launch Strategy:</strong> Planning and executing a successful rebrand launch.</li>
+                    </ul>
+                </div>
+
+                <!-- Other Consultation Services -->
+                <div class="service-item" id="other-consultation">
+                    <h3><i class="fas fa-lightbulb" style="color: var(--primary-green); margin-right: 10px;"></i> Other
+                        Consultation Services</h3>
+                    <ul>
+                        <li><strong>Strategic Growth:</strong> Tailored plans for business expansion and digital
+                            transformation.</li>
+                        <li><strong>Process Optimization:</strong> Streamlining workflows with technology and best
+                            practices.</li>
+                        <li><strong>Startup Mentorship:</strong> Guidance for new ventures on tech and branding
+                            foundations.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="color: white;">
+                        <span class="green">INFO</span><span style="color: white;">MA</span>
+                    </a>
+                    <p>Your partner in digital transformation and IT excellence.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>IT Services</h4>
+                    <ul>
+                        <li><a href="it-services.html#web-design">Web Design</a></li>
+                        <li><a href="it-services.html#system-integration">System Integration</a></li>
+                        <li><a href="it-services.html#infrastructure">IT Infrastructure</a></li>
+                        <li><a href="consultation.html">Consultation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Digital Services</h4>
+                    <ul>
+                        <li><a href="digital-services.html#brand-identity">Brand Identity</a></li>
+                        <li><a href="digital-services.html#multimedia">Motion Graphics</a></li>
+                        <li><a href="digital-services.html#social-content">Social Media</a></li>
+                        <li><a href="digital-services.html#social-content">Content Production</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="clients.html">Our Clients</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 INFOMA. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+

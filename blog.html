@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | INFOMA</title>
+    <meta name="description" content="Latest insights, trends, and news from the world of IT and Digital Marketing.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-image {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 25px;
+        }
+
+        .blog-date {
+            font-size: 0.85rem;
+            color: var(--text-light-gray);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .blog-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--text-black);
+            font-weight: 600;
+        }
+
+        .blog-excerpt {
+            color: var(--text-light-gray);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .read-more {
+            color: var(--primary-green);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .page-header {
+            background-color: var(--off-white);
+            padding: 80px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loader-wrapper">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <span class="green">INFO</span><span class="white">MA</span>
+            </div>
+            <div class="loader-text">System Initializing...</div>
+            <p class="sub-heading">Trends, tips, and news from the tech and digital world.</p>
+        </div>
+        </section>
+
+        <!-- Blog Grid -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="blog-grid">
+
+                    <!-- Article 1 -->
+                    <article class="blog-card">
+                        <img src="https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Blog 1" class="blog-image">
+                        <div class="blog-content">
+                            <span class="blog-date">October 15, 2023</span>
+                            <h3 class="blog-title">The Future of AI in Digital Marketing</h3>
+                            <p class="blog-excerpt">Discover how artificial intelligence is reshaping the way brands
+                                connect
+                                with their audience and optimize campaigns.</p>
+                            <a href="#" class="read-more">Read More</a>
+                        </div>
+                    </article>
+
+                    <!-- Article 2 -->
+                    <article class="blog-card">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Blog 2" class="blog-image">
+                        <div class="blog-content">
+                            <span class="blog-date">September 28, 2023</span>
+                            <h3 class="blog-title">Cybersecurity Essentials for Small Businesses</h3>
+                            <p class="blog-excerpt">Protect your business from cyber threats with these essential
+                                security
+                                practices and infrastructure setups.</p>
+                            <a href="#" class="read-more">Read More</a>
+                        </div>
+                    </article>
+
+                    <!-- Article 3 -->
+                    <article class="blog-card">
+                        <img src="https://images.unsplash.com/photo-1542744094-24638eff58bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Blog 3" class="blog-image">
+                        <div class="blog-content">
+                            <span class="blog-date">September 10, 2023</span>
+                            <h3 class="blog-title">Why Your Business Needs a Brand Style Guide</h3>
+                            <p class="blog-excerpt">Consistency is key. Learn why a comprehensive brand style guide is
+                                crucial for maintaining a strong brand identity.</p>
+                            <a href="#" class="read-more">Read More</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="logo" style="color: white;">
+                            <span class="green">INFO</span><span style="color: white;">MA</span>
+                        </a>
+                        <p>Your partner in digital transformation and IT excellence.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h4>IT Services</h4>
+                        <ul>
+                            <li><a href="it-services.html#web-design">Web Design</a></li>
+                            <li><a href="it-services.html#system-integration">System Integration</a></li>
+                            <li><a href="it-services.html#infrastructure">IT Infrastructure</a></li>
+                            <li><a href="consultation.html">Consultation</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Digital Services</h4>
+                        <ul>
+                            <li><a href="digital-services.html#brand-identity">Brand Identity</a></li>
+                            <li><a href="digital-services.html#multimedia">Motion Graphics</a></li>
+                            <li><a href="digital-services.html#social-content">Social Media</a></li>
+                            <li><a href="digital-services.html#social-content">Content Production</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="clients.html">Our Clients</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 INFOMA. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Scroll to Top Button -->
+        <button id="scrollTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
+        <script src="script.js"></script>
+</body>
+
+</html>
+
