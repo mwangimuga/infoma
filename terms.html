@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insights | INFOMA</title>
-    <meta name="description" content="Latest insights, trends, and news from the world of IT and Digital Marketing.">
+    <title>Terms of Service | INFOMA</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,12 +57,6 @@
             .nav-link {
                 @apply text-[13px] font-medium opacity-60 hover:opacity-100 transition-opacity uppercase tracking-widest;
             }
-            .nav-link.active {
-                @apply opacity-100 relative;
-            }
-            .nav-link.active::after {
-                @apply content-[''] absolute -bottom-1 left-0 w-full h-[2px] bg-brand-red;
-            }
         }
     </style>
 </head>
@@ -71,121 +64,60 @@
 
     <!-- Navigation -->
     <nav class="glass-nav px-8 py-4 flex items-center justify-between">
-            <img src="assets/Infoma Logo white.svg" alt="Infoma Logo" class="grayscale group-hover:grayscale-0 transition-all duration-700 h-24 object-contain dark:hidden" />
-            <img src="assets/Infoma Logo black.svg" alt="Infoma Logo" class="grayscale group-hover:grayscale-0 transition-all duration-700 h-24 object-contain hidden dark:block" />
+        <a href="index.html" class="flex items-center gap-2 group">
+            <img src="assets/Infoma Logo white.svg" alt="Infoma Logo" class="grayscale group-hover:grayscale-0 transition-all duration-700 h-24 object-contain dark:hidden transition-transform group-hover:scale-105" />
+            <img src="assets/Infoma Logo black.svg" alt="Infoma Logo" class="grayscale group-hover:grayscale-0 transition-all duration-700 h-24 object-contain hidden dark:block transition-transform group-hover:scale-105" />
+        </a>
         
-        <ul class="hidden lg:flex items-center gap-10">
-            <li><a href="index.html" class="nav-link">Home</a></li>
-            <li><a href="about.html" class="nav-link">About</a></li>
-            <li><a href="it-services.html" class="nav-link">IT & Tech</a></li>
-            <li><a href="digital-services.html" class="nav-link">Digital Media</a></li>
-            <li><a href="contact.html" class="nav-link">Contact</a></li>
-        </ul>
+        <div class="hidden md:flex items-center gap-10">
+            <a href="about.html" class="nav-link">About</a>
+            <a href="it-services.html" class="nav-link">IT & Tech</a>
+            <a href="digital-services.html" class="nav-link">Digital Media</a>
+            <a href="consultation.html" class="nav-link">Consultation</a>
+            <a href="blog.html" class="nav-link">Blog</a>
+        </div>
 
         <div class="flex items-center gap-6">
-            <button id="theme-toggle" class="p-2 opacity-50 hover:opacity-100 transition-opacity">
-                <svg id="theme-toggle-dark-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-                <svg id="theme-toggle-light-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+            <button id="theme-toggle" class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+                <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
             </button>
-            
-            <!-- Hamburger -->
-            <button id="mobile-menu-open" class="lg:hidden p-2 opacity-50">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
+            <a href="contact.html" class="hidden md:inline-block px-6 py-2 rounded-full bg-brand-charcoal text-white dark:bg-white dark:text-brand-charcoal text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-transform">Get in Touch</a>
+            <button class="md:hidden p-2"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
         </div>
     </nav>
 
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 z-[100] bg-white dark:bg-brand-charcoal translate-x-full transition-transform duration-500 lg:hidden">
-        <div class="p-8 flex flex-col h-full">
-            <div class="flex justify-between items-center mb-16">
-                <img src="assets/Infoma Logo white.svg" alt="Logo" class="grayscale group-hover:grayscale-0 transition-all duration-700 h-12 dark:hidden" />
-                <img src="assets/Infoma Logo black.svg" alt="Logo" class="grayscale group-hover:grayscale-0 transition-all duration-700 h-12 hidden dark:block" />
-                <button id="mobile-menu-close" class="p-2 opacity-50">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </button>
-            </div>
-            <ul class="space-y-8">
-                <li><a href="index.html" class="text-4xl font-bold hover:text-brand-green transition-colors">Home</a></li>
-                <li><a href="about.html" class="text-4xl font-bold hover:text-brand-green transition-colors">About</a></li>
-                <li><a href="it-services.html" class="text-4xl font-bold hover:text-brand-green transition-colors">IT & Tech</a></li>
-                <li><a href="digital-services.html" class="text-4xl font-bold hover:text-brand-green transition-colors">Digital Media</a></li>
-                <li><a href="contact.html" class="text-4xl font-bold hover:text-brand-green transition-colors">Contact</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- Hero -->
+    <!-- Header -->
     <header class="pt-48 pb-20 px-8">
-        <div class="container mx-auto max-w-5xl">
-            <div class="flex items-center gap-3 mb-8">
-                <div class="w-1.5 h-1.5 rounded-full bg-brand-red"></div>
-                <span class="text-[10px] font-bold uppercase tracking-[0.3em] opacity-40">Knowledge Base</span>
-            </div>
-            <h1 class="text-4xl md:text-8xl font-bold leading-[0.9] mb-10">
-                <span class="text-brand-green">Insights</span> & Perspectives.
-            </h1>
-            <p class="text-lg opacity-50 max-w-2xl leading-relaxed">
-                Trends, strategies, and deep dives from the intersection of technology and creative media.
-            </p>
+        <div class="container mx-auto max-w-4xl">
+            <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-8 tracking-premium">Terms of Service</h1>
+            <p class="text-sm opacity-50 uppercase tracking-widest font-bold">Last Updated: October 2026</p>
         </div>
     </header>
 
-    <!-- Blog Grid -->
-    <section class="pb-32 px-8">
-        <div class="container mx-auto max-w-6xl">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- Content -->
+    <main class="py-20 px-8">
+        <div class="container mx-auto max-w-4xl border-t border-black/10 dark:border-white/10 pt-20">
+            <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:font-bold prose-headings:tracking-premium prose-p:opacity-70 prose-li:opacity-70">
+                <h2>1. Acceptance of Terms</h2>
+                <p>By accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement. In addition, when using these particular services, you shall be subject to any posted guidelines or rules applicable to such services.</p>
 
-                <!-- Article 1 -->
-                <article class="group cursor-pointer">
-                    <div class="aspect-[4/3] rounded-3xl overflow-hidden mb-8 border border-black/5 dark:border-white/10">
-                        <img src="https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?auto=format&fit=crop&w=800&q=80" alt="AI in Digital Marketing" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
-                    </div>
-                    <div class="px-2">
-                        <div class="flex items-center gap-4 mb-4">
-                            <span class="text-[9px] font-bold uppercase tracking-[0.3em] text-brand-green">AI & Marketing</span>
-                            <span class="text-[9px] font-bold uppercase tracking-[0.3em] opacity-30">Oct 2023</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-4 group-hover:text-brand-green transition-colors leading-tight">The Future of AI in Digital Marketing</h3>
-                        <p class="text-sm opacity-40 leading-relaxed mb-6">Discover how artificial intelligence is reshaping the way brands connect with their audience and optimize campaigns.</p>
-                        <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-red group-hover:text-brand-green transition-colors">Read Article →</span>
-                    </div>
-                </article>
+                <h2>2. Provision of Services</h2>
+                <p>Infoma Group is constantly innovating in order to provide the best possible experience for its users. You acknowledge and agree that the form and nature of the services which Infoma Group provides may change from time to time without prior notice to you.</p>
 
-                <!-- Article 2 -->
-                <article class="group cursor-pointer">
-                    <div class="aspect-[4/3] rounded-3xl overflow-hidden mb-8 border border-black/5 dark:border-white/10">
-                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" alt="Cybersecurity" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
-                    </div>
-                    <div class="px-2">
-                        <div class="flex items-center gap-4 mb-4">
-                            <span class="text-[9px] font-bold uppercase tracking-[0.3em] text-brand-green">Security</span>
-                            <span class="text-[9px] font-bold uppercase tracking-[0.3em] opacity-30">Sep 2023</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-4 group-hover:text-brand-green transition-colors leading-tight">Cybersecurity Essentials for Small Businesses</h3>
-                        <p class="text-sm opacity-40 leading-relaxed mb-6">Protect your business from cyber threats with these essential security practices and infrastructure setups.</p>
-                        <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-red group-hover:text-brand-green transition-colors">Read Article →</span>
-                    </div>
-                </article>
+                <h2>3. Use of the Site</h2>
+                <p>You agree to use the site only for lawful purposes, and in a way that does not infringe the rights of, restrict or inhibit anyone else's use and enjoyment of the site. Prohibited behavior includes harassing or causing distress or inconvenience to any person, transmitting obscene or offensive content or disrupting the normal flow of dialogue within our site.</p>
 
-                <!-- Article 3 -->
-                <article class="group cursor-pointer">
-                    <div class="aspect-[4/3] rounded-3xl overflow-hidden mb-8 border border-black/5 dark:border-white/10">
-                        <img src="https://images.unsplash.com/photo-1542744094-24638eff58bb?auto=format&fit=crop&w=800&q=80" alt="Brand Style Guide" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
-                    </div>
-                    <div class="px-2">
-                        <div class="flex items-center gap-4 mb-4">
-                            <span class="text-[9px] font-bold uppercase tracking-[0.3em] text-brand-green">Branding</span>
-                            <span class="text-[9px] font-bold uppercase tracking-[0.3em] opacity-30">Sep 2023</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-4 group-hover:text-brand-green transition-colors leading-tight">Why Your Business Needs a Brand Style Guide</h3>
-                        <p class="text-sm opacity-40 leading-relaxed mb-6">Consistency is key. Learn why a comprehensive brand style guide is crucial for maintaining a strong brand identity.</p>
-                        <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-red group-hover:text-brand-green transition-colors">Read Article →</span>
-                    </div>
-                </article>
+                <h2>4. Intellectual Property</h2>
+                <p>The content, layout, design, data, databases and graphics on this website are protected by Kenya and other international intellectual property laws and are owned by Infoma Group. Unless expressly permitted in writing, you may not copy, distribute, display, reproduce, modify or create derivative works from our site.</p>
+
+                <h2>5. Limitation of Liability</h2>
+                <p>Infoma Group will not be liable for any consequential, incidental, indirect, exemplary, punitive or special damages of any kind, however caused, including loss of profits, revenue, data or use, incurred by you, whether under theory of contract, tort (including negligence), warranty or otherwise, even if the other party has been advised of the possibility of such damages.</p>
+                
+                <p class="mt-12 text-sm opacity-50">If you have any questions about these Terms, please contact us at <a href="mailto:hello@infoma.tech" class="text-brand-green hover:underline">hello@infoma.tech</a>.</p>
             </div>
         </div>
-    </section>
+    </main>
 
     <!-- Uniform Footer -->
     <footer class="pt-32 pb-16 px-8 border-t border-black/5 dark:border-white/5">
@@ -221,6 +153,7 @@
                     <a href="contact.html" class="inline-block text-[10px] font-bold uppercase tracking-[0.3em] text-brand-red hover:text-brand-green transition-colors">Start a Project →</a>
                 </div>
             </div>
+            
             <div class="flex flex-col md:flex-row justify-between items-center opacity-40 text-[9px] uppercase tracking-[0.4em] font-bold">
                 <p>&copy; 2026 INFOMA GROUP. ALL RIGHTS RESERVED.</p>
                 

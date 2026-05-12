@@ -538,6 +538,16 @@ footer {
     font-size: 0.95rem;
 }
 
+/* Uniform Footer Override */
+footer.uniform-footer {
+    background-color: #F8F9FA;
+    color: #111111;
+    padding: 80px 0 40px;
+    font-size: 0.95rem;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
 .footer-grid {
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr 1fr;

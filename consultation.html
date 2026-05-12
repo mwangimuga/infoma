@@ -1,282 +1,305 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consultation | INFOMA</title>
-    <meta name="description"
-        content="Expert consultation services including Audits, Trainings, Brand Consultation, Rebranding, and Strategic Growth.">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .service-detail-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
+    <meta name="description" content="Expert consultation services including Audits, Trainings, Brand Consultation, Rebranding, and Strategic Growth.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#4CAF50',
+                            red: '#EF4444',
+                            charcoal: '#111111',
+                            offwhite: '#F8F9FA',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    letterSpacing: {
+                        premium: '-0.02em',
+                    }
+                }
+            }
         }
-
-        .service-item {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            border-left: 4px solid var(--primary-green);
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply font-sans bg-brand-offwhite text-brand-charcoal transition-colors duration-300 tracking-premium antialiased;
+            }
+            .dark body {
+                @apply bg-brand-charcoal text-brand-offwhite;
+            }
+            h1, h2, h3, h4 {
+                @apply font-bold tracking-premium text-brand-charcoal dark:text-white;
+            }
         }
-
-        .service-item h3 {
-            margin-bottom: 15px;
-            color: var(--text-black);
-            font-size: 1.4rem;
-        }
-
-        .service-item ul {
-            list-style: disc;
-            padding-left: 20px;
-            color: var(--text-light-gray);
-        }
-
-        .service-item ul li {
-            margin-bottom: 8px;
-        }
-
-        .page-header {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1553877616-15280d3fd267?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
-            background-size: cover;
-            background-position: center;
-            color: var(--white);
-            padding: 100px 0;
-            text-align: center;
-        }
-
-        .page-header h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
+        @layer components {
+            .glass-nav {
+                @apply fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 rounded-2xl border border-black/5 bg-white/70 backdrop-blur-xl shadow-sm transition-all duration-300;
+            }
+            .dark .glass-nav {
+                @apply bg-black/50 border-white/5;
+            }
+            .nav-link {
+                @apply text-[13px] font-medium opacity-60 hover:opacity-100 transition-opacity uppercase tracking-widest;
+            }
+            .nav-link.active {
+                @apply opacity-100 relative;
+            }
+            .nav-link.active::after {
+                @apply content-[''] absolute -bottom-1 left-0 w-full h-[2px] bg-brand-red;
+            }
+            .bento-card {
+                @apply relative overflow-hidden rounded-3xl p-10 border border-black/5 bg-white transition-all duration-500 hover:shadow-2xl hover:-translate-y-1;
+            }
+            .dark .bento-card {
+                @apply border-white/5 bg-white/5 backdrop-blur-sm;
+            }
         }
     </style>
 </head>
-
 <body>
 
-    <!-- Loading Screen -->
-    <div id="loader-wrapper">
-        <div class="loader-content">
-            <div class="loader-logo">
-                <span class="green">INFO</span><span class="white">MA</span>
+    <!-- Navigation -->
+    <nav class="glass-nav px-8 py-4 flex items-center justify-between">
+            <img src="assets/Infoma Logo white.svg" alt="Infoma Logo" class="grayscale group-hover:grayscale-0 transition-all duration-700 h-24 object-contain dark:hidden" />
+            <img src="assets/Infoma Logo black.svg" alt="Infoma Logo" class="grayscale group-hover:grayscale-0 transition-all duration-700 h-24 object-contain hidden dark:block" />
+        
+        <ul class="hidden lg:flex items-center gap-10">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="it-services.html" class="nav-link">IT & Tech</a></li>
+            <li><a href="digital-services.html" class="nav-link">Digital Media</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="flex items-center gap-6">
+            <button id="theme-toggle" class="p-2 opacity-50 hover:opacity-100 transition-opacity">
+                <svg id="theme-toggle-dark-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                <svg id="theme-toggle-light-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+            </button>
+            
+            <!-- Hamburger -->
+            <button id="mobile-menu-open" class="lg:hidden p-2 opacity-50">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-[100] bg-white dark:bg-brand-charcoal translate-x-full transition-transform duration-500 lg:hidden">
+        <div class="p-8 flex flex-col h-full">
+            <div class="flex justify-between items-center mb-16">
+                <img src="assets/Infoma Logo white.svg" alt="Logo" class="grayscale group-hover:grayscale-0 transition-all duration-700 h-12 dark:hidden" />
+                <img src="assets/Infoma Logo black.svg" alt="Logo" class="grayscale group-hover:grayscale-0 transition-all duration-700 h-12 hidden dark:block" />
+                <button id="mobile-menu-close" class="p-2 opacity-50">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
             </div>
-            <div class="loader-text">System Initializing...</div>
-            <div class="loader-bar">
-                <div class="loader-progress"></div>
-            </div>
+            <ul class="space-y-8">
+                <li><a href="index.html" class="text-4xl font-bold hover:text-brand-green transition-colors">Home</a></li>
+                <li><a href="about.html" class="text-4xl font-bold hover:text-brand-green transition-colors">About</a></li>
+                <li><a href="it-services.html" class="text-4xl font-bold hover:text-brand-green transition-colors">IT & Tech</a></li>
+                <li><a href="digital-services.html" class="text-4xl font-bold hover:text-brand-green transition-colors">Digital Media</a></li>
+                <li><a href="contact.html" class="text-4xl font-bold hover:text-brand-green transition-colors">Contact</a></li>
+            </ul>
         </div>
     </div>
 
-    <!-- Navigation -->
-    <header>
-        <div class="container nav-container">
-            <!-- Left Menu -->
-            <ul class="nav-menu nav-left">
-                <li class="nav-item">
-                    <span class="nav-num">01</span>
-                    <a href="index.html">Home</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <span class="nav-num">02</span>
-                    <a href="#">About Us</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="who-we-are.html">Who We Are</a></li>
-                        <li><a href="why-we-exist.html">Why We Exist</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <span class="nav-num">03</span>
-                    <a href="#">Our Services</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="it-services.html">IT & Tech</a></li>
-                        <li><a href="digital-services.html">Digital Media</a></li>
-                        <li><a href="consultation.html">Consultation</a></li>
-                    </ul>
-                </li>
-            </ul>
-
-            <!-- Center Logo -->
-            <div class="nav-center">
-                <a href="index.html" class="logo">
-                    <span class="green">INFO</span><span class="black">MA</span>
-                </a>
+    <!-- Hero -->
+    <header class="pt-48 pb-20 px-8">
+        <div class="container mx-auto max-w-5xl">
+            <div class="flex items-center gap-3 mb-8">
+                <div class="w-1.5 h-1.5 rounded-full bg-brand-red"></div>
+                <span class="text-[10px] font-bold uppercase tracking-[0.3em] opacity-40">Strategic Advisory</span>
             </div>
-
-            <!-- Right Menu -->
-            <ul class="nav-menu nav-right">
-                <li class="nav-item">
-                    <span class="nav-num">04</span>
-                    <a href="clients.html">Our Work</a>
-                </li>
-                <li class="nav-item">
-                    <span class="nav-num">05</span>
-                    <a href="careers.html">Careers</a>
-                </li>
-                <li class="nav-item">
-                    <span class="nav-num">06</span>
-                    <a href="contact.html">Contact Us</a>
-                </li>
-            </ul>
-
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-
-            <!-- Mobile Menu Container -->
-            <div class="mobile-menu-container"></div>
+            <h1 class="text-4xl md:text-8xl font-bold leading-[0.9] mb-10">
+                Expert <span class="text-brand-green">Guidance</span>.
+            </h1>
+            <p class="text-lg opacity-50 max-w-2xl leading-relaxed">
+                Specialized advice and strategies tailored to your unique needs. We help businesses elevate their technology, brand, and operations.
+            </p>
         </div>
     </header>
 
-    <!-- Page Header -->
-    <section class="page-header">
-        <div class="container">
-            <h1>Consultation</h1>
-            <p>Expert guidance to elevate your business, technology, and brand.</p>
-        </div>
-    </section>
-
-    <!-- Services List -->
-    <section class="section-padding">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="heading-md">Our Consultation Services</h2>
-                <p class="sub-heading">We provide specialized advice and strategies tailored to your unique needs.</p>
-            </div>
-
-            <div class="service-detail-grid">
-
-                <!-- Audits -->
-                <div class="service-item" id="audits">
-                    <h3><i class="fas fa-clipboard-check" style="color: var(--primary-green); margin-right: 10px;"></i>
-                        Audits</h3>
-                    <ul>
-                        <li><strong>IT Infrastructure Audits:</strong> Comprehensive review of your current systems and
-                            security.</li>
-                        <li><strong>Brand Audits:</strong> In-depth analysis of your brand's market position and visual
-                            consistency.</li>
-                        <li><strong>Performance Audits:</strong> Evaluating operational efficiency and digital presence.
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Trainings -->
-                <div class="service-item" id="trainings">
-                    <h3><i class="fas fa-chalkboard-teacher"
-                            style="color: var(--primary-green); margin-right: 10px;"></i> Trainings</h3>
-                    <ul>
-                        <li><strong>Corporate Workshops:</strong> Upskilling teams on new software and digital tools.
-                        </li>
-                        <li><strong>Cybersecurity Awareness:</strong> Training staff on best practices and threat
-                            prevention.</li>
-                        <li><strong>Brand Stewardship:</strong> Educating employees on maintaining brand integrity.</li>
-                    </ul>
-                </div>
-
-                <!-- Brand Consultation -->
-                <div class="service-item" id="brand-consultation">
-                    <h3><i class="fas fa-paint-brush" style="color: var(--primary-green); margin-right: 10px;"></i>
-                        Brand Consultation</h3>
-                    <ul>
-                        <li><strong>Visual Identity:</strong> Expert advice on logos, color palettes, and typography.
-                        </li>
-                        <li><strong>Market Research:</strong> Insights into competitor branding and audience
-                            preferences.</li>
-                        <li><strong>Brand Strategy:</strong> Developing a roadmap for long-term brand growth.</li>
-                    </ul>
-                </div>
-
-                <!-- Rebranding -->
-                <div class="service-item" id="rebranding">
-                    <h3><i class="fas fa-sync-alt" style="color: var(--primary-green); margin-right: 10px;"></i>
-                        Rebranding</h3>
-                    <ul>
-                        <li><strong>Strategic Overhaul:</strong> Complete revitalization of your brand identity.</li>
-                        <li><strong>Market Repositioning:</strong> Aligning your brand with new business goals or
-                            audiences.</li>
-                        <li><strong>Launch Strategy:</strong> Planning and executing a successful rebrand launch.</li>
-                    </ul>
-                </div>
-
-                <!-- Other Consultation Services -->
-                <div class="service-item" id="other-consultation">
-                    <h3><i class="fas fa-lightbulb" style="color: var(--primary-green); margin-right: 10px;"></i> Other
-                        Consultation Services</h3>
-                    <ul>
-                        <li><strong>Strategic Growth:</strong> Tailored plans for business expansion and digital
-                            transformation.</li>
-                        <li><strong>Process Optimization:</strong> Streamlining workflows with technology and best
-                            practices.</li>
-                        <li><strong>Startup Mentorship:</strong> Guidance for new ventures on tech and branding
-                            foundations.</li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="index.html" class="logo" style="color: white;">
-                        <span class="green">INFO</span><span style="color: white;">MA</span>
-                    </a>
-                    <p>Your partner in digital transformation and IT excellence.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+    <!-- Consultation Services Grid -->
+    <section class="py-20 px-8">
+        <div class="container mx-auto max-w-6xl">
+            <!-- Service 1: Audits -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center py-16 group">
+                <div class="aspect-[4/3] w-full rounded-3xl overflow-hidden bg-black/[0.02] dark:bg-white/[0.02]"><img src="consultation_service_image_1778592653491.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"></div>
+                <div class="space-y-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <svg class="w-5 h-5 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+                        <span class="text-[10px] font-bold uppercase tracking-[0.3em] opacity-40">Audits</span>
                     </div>
-                </div>
-                <div class="footer-col">
-                    <h4>IT Services</h4>
-                    <ul>
-                        <li><a href="it-services.html#web-design">Web Design</a></li>
-                        <li><a href="it-services.html#system-integration">System Integration</a></li>
-                        <li><a href="it-services.html#infrastructure">IT Infrastructure</a></li>
-                        <li><a href="consultation.html">Consultation</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Digital Services</h4>
-                    <ul>
-                        <li><a href="digital-services.html#brand-identity">Brand Identity</a></li>
-                        <li><a href="digital-services.html#multimedia">Motion Graphics</a></li>
-                        <li><a href="digital-services.html#social-content">Social Media</a></li>
-                        <li><a href="digital-services.html#social-content">Content Production</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="clients.html">Our Clients</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                    <h3 class="text-3xl font-bold group-hover:text-brand-red transition-colors duration-500">Systems & Brand Analysis</h3>
+                    <ul class="space-y-4 text-sm opacity-60">
+                        <li>• <span class="font-bold">IT Infrastructure</span> — Comprehensive review of current systems and security</li>
+                        <li>• <span class="font-bold">Brand Audits</span> — Market position and visual consistency analysis</li>
+                        <li>• <span class="font-bold">Performance</span> — Operational efficiency and digital presence evaluation</li>
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 INFOMA. All rights reserved.</p>
+
+            <!-- Service 2: Trainings -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center py-16 group">
+                <div class="aspect-[4/3] w-full rounded-3xl transition-colors duration-700 md:order-last overflow-hidden"><img src="consultation_service_image_1778592653491.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"></div>
+                <div class="space-y-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <svg class="w-5 h-5 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <span class="text-[10px] font-bold uppercase tracking-[0.3em] opacity-40">Trainings</span>
+                    </div>
+                    <h3 class="text-3xl font-bold group-hover:text-brand-green transition-colors duration-500">Corporate Upskilling</h3>
+                    <ul class="space-y-4 text-sm opacity-60">
+                        <li>• <span class="font-bold">Workshops</span> — Upskilling teams on new software and digital tools</li>
+                        <li>• <span class="font-bold">Cybersecurity</span> — Best practices and threat prevention training</li>
+                        <li>• <span class="font-bold">Brand Stewardship</span> — Maintaining brand integrity across teams</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 3: Brand Consultation -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center py-16 group">
+                <div class="aspect-[4/3] w-full rounded-3xl overflow-hidden bg-black/[0.02] dark:bg-white/[0.02]"><img src="consultation_service_image_1778592653491.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"></div>
+                <div class="space-y-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <svg class="w-5 h-5 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
+                        <span class="text-[10px] font-bold uppercase tracking-[0.3em] opacity-40">Brand</span>
+                    </div>
+                    <h3 class="text-3xl font-bold group-hover:text-brand-red transition-colors duration-500">Brand Consultation</h3>
+                    <ul class="space-y-4 text-sm opacity-60">
+                        <li>• <span class="font-bold">Visual Identity</span> — Expert advice on logos, color palettes, and typography</li>
+                        <li>• <span class="font-bold">Market Research</span> — Competitor branding and audience insights</li>
+                        <li>• <span class="font-bold">Brand Strategy</span> — Roadmap for long-term brand growth</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 4: Rebranding -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center py-16 group">
+                <div class="aspect-[4/3] w-full rounded-3xl transition-colors duration-700 md:order-last overflow-hidden"><img src="consultation_service_image_1778592653491.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"></div>
+                <div class="space-y-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <svg class="w-5 h-5 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                        <span class="text-[10px] font-bold uppercase tracking-[0.3em] opacity-40">Rebranding</span>
+                    </div>
+                    <h3 class="text-3xl font-bold group-hover:text-brand-green transition-colors duration-500">Brand Revitalization</h3>
+                    <ul class="space-y-4 text-sm opacity-60">
+                        <li>• <span class="font-bold">Strategic Overhaul</span> — Complete brand identity revitalization</li>
+                        <li>• <span class="font-bold">Repositioning</span> — Aligning brand with new business goals</li>
+                        <li>• <span class="font-bold">Launch Strategy</span> — Planning and executing successful rebrand</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 5: Strategic Growth -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center py-16 group">
+                <div class="aspect-[4/3] w-full rounded-3xl overflow-hidden bg-black/[0.02] dark:bg-white/[0.02]"><img src="consultation_service_image_1778592653491.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"></div>
+                <div class="space-y-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <svg class="w-5 h-5 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                        <span class="text-[10px] font-bold uppercase tracking-[0.3em] opacity-40">Growth & Optimization</span>
+                    </div>
+                    <h3 class="text-3xl font-bold group-hover:text-brand-red transition-colors duration-500">Strategic Growth Advisory</h3>
+                    <ul class="space-y-4 text-sm opacity-60">
+                        <li>• <span class="font-bold">Strategic Growth</span> — Tailored plans for business expansion and digital transformation.</li>
+                        <li>• <span class="font-bold">Process Optimization</span> — Streamlining workflows with technology and best practices.</li>
+                        <li>• <span class="font-bold">Startup Mentorship</span> — Guidance for new ventures on tech and branding foundations.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-32 px-8">
+        <div class="container mx-auto max-w-3xl text-center">
+            <span class="text-[10px] font-bold uppercase tracking-[0.3em] opacity-40 mb-6 block">Ready to Transform?</span>
+            <h2 class="text-3xl md:text-5xl font-bold mb-8">Book a Strategic <span class="text-brand-green">Consultation</span>.</h2>
+            <p class="text-base opacity-50 mb-12 max-w-xl mx-auto leading-relaxed">Let our experts analyze your current position and chart a course for growth.</p>
+            <a href="contact.html" class="inline-block px-10 py-5 rounded-2xl bg-brand-green text-white font-bold tracking-widest uppercase text-xs shadow-2xl shadow-brand-green/20 hover:scale-[1.02] active:scale-[0.98] transition-all">Start the Conversation</a>
+        </div>
+    </section>
+
+    <!-- Uniform Footer -->
+    <footer class="pt-32 pb-16 px-8 border-t border-black/5 dark:border-white/5">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-16 md:gap-16 mb-32">
+                <div>
+                    <img src="assets/Infoma Logo white.svg" alt="Infoma Logo" class="grayscale group-hover:grayscale-0 transition-all duration-700 h-12 mb-8 opacity-50 dark:hidden" />
+                    <img src="assets/Infoma Logo black.svg" alt="Infoma Logo" class="grayscale group-hover:grayscale-0 transition-all duration-700 h-12 mb-8 opacity-50 hidden dark:block" />
+                    <p class="text-sm opacity-40 max-w-xs">Your partner in digital transformation and IT excellence. Professional services for the discerning enterprise.</p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-widest mb-10 opacity-30">Services</h4>
+                    <ul class="space-y-4 text-sm opacity-50">
+                        <li><a href="it-services.html" class="hover:text-brand-green transition-colors">IT & Tech</a></li>
+                        <li><a href="digital-services.html" class="hover:text-brand-green transition-colors">Digital Media</a></li>
+                        <li><a href="consultation.html" class="hover:text-brand-green transition-colors">Consultation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-widest mb-10 opacity-30">Company</h4>
+                    <ul class="space-y-4 text-sm opacity-50">
+                        <li><a href="about.html" class="hover:text-brand-green transition-colors">About</a></li>
+                        <li><a href="blog.html" class="hover:text-brand-green transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-widest mb-10 opacity-30">Get In Touch</h4>
+                    <p class="text-sm opacity-50 leading-loose mb-6">
+                        Nairobi, Kenya<br>
+                        hello@infoma.tech<br>
+                        +254 723 792 311 - Lead Consultant (Mark Muga)
+                    </p>
+                    <a href="contact.html" class="inline-block text-[10px] font-bold uppercase tracking-[0.3em] text-brand-red hover:text-brand-green transition-colors">Start a Project →</a>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center opacity-40 text-[9px] uppercase tracking-[0.4em] font-bold">
+                <p>&copy; 2026 INFOMA GROUP. ALL RIGHTS RESERVED.</p>
+                
+                <div class="flex gap-6 mt-8 md:mt-0 items-center">
+                    <a href="#" class="grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="#" class="grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.332 3.608 1.308.975.975 1.245 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.063 1.366-.333 2.633-1.308 3.608-.975.975-2.242 1.245-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.063-2.633-.333-3.608-1.308-.975-.975-1.245-2.242-1.308-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.332-2.633 1.308-3.608.975-.975 2.242-1.245 3.608-1.308 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-4.78 3.202-4.78 7.928s.422 7.728 4.78 7.928c1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c4.358-.2 4.78-3.202 4.78-7.928s-.422-7.728-4.78-7.928c-1.28-.057-1.688-.072-4.947-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="#" class="grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="#" class="grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a href="#" class="grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .004 5.412.001 12.049a11.866 11.866 0 001.592 6.011L0 24l6.117-1.605a11.803 11.803 0 005.925 1.586h.005c6.637 0 12.048-5.412 12.052-12.049a11.829 11.829 0 00-3.566-8.528z"/></svg>
+                    </a>
+                </div>
+
+                <div class="flex gap-12 mt-4 md:mt-0">
+                    <a href="privacy.html" class="hover:text-brand-green transition-colors">Privacy</a>
+                    <a href="terms.html" class="hover:text-brand-green transition-colors">Terms</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Scroll to Top Button -->
-    <button id="scrollTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
-
     <script src="script.js"></script>
 </body>
-
 </html>
-
