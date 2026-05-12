@@ -161,37 +161,53 @@
         </div>
     </header>
 
-    <!-- Services Overview (Text from Site) -->
-    <section id="services" class="py-32 bg-white dark:bg-brand-charcoal/30 px-8">
+    <!-- Services Overview -->
+    <section id="services" class="py-32 px-8">
         <div class="container mx-auto">
-            <div class="max-w-xl mb-24">
-                <h2 class="text-4xl font-bold mb-6">Expertise Redefined.</h2>
-                <p class="opacity-50">We provide a comprehensive suite of services designed to elevate your business technology and brand presence.</p>
+            <div class="max-w-xl mb-32">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-1.5 h-1.5 rounded-full bg-brand-green"></div>
+                    <span class="text-[10px] font-bold uppercase tracking-[0.3em] opacity-40">Core Expertise</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-bold mb-8 tracking-premium">Expertise <span class="text-brand-green">Redefined</span>.</h2>
+                <p class="text-lg opacity-50 leading-relaxed">We provide a comprehensive suite of services designed to elevate your business technology and brand presence through surgical precision and creative depth.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            <div class="space-y-40">
                 <!-- IT & Tech -->
-                <div class="bento-card surgical-detail group">
-                    <h3 class="text-2xl font-bold mb-6 group-hover:text-brand-green transition-colors">IT & Tech Services</h3>
-                    <p class="text-sm opacity-50 mb-10 leading-relaxed">Empowering your business with robust technology solutions. We offer a wide range of IT services either on a one-off or retainer basis.</p>
-                    <ul class="space-y-4 text-xs font-bold uppercase tracking-widest opacity-40 group-hover:opacity-100 transition-opacity">
-                        <li>• Web & Software Development</li>
-                        <li>• IT Infrastructure</li>
-                        <li>• AI & Automation</li>
-                    </ul>
-                    <a href="it-services.html" class="mt-12 inline-block text-[10px] font-bold uppercase tracking-[0.3em] text-brand-red">Technical Specs →</a>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-32 items-center group">
+                    <div class="aspect-[4/5] rounded-3xl overflow-hidden bg-black/[0.02] dark:bg-white/[0.02]">
+                        <img src="assets/it_services.png" alt="IT & Tech" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
+                    </div>
+                    <div class="space-y-8">
+                        <span class="text-[10px] font-bold uppercase tracking-[0.3em] opacity-40">01 / Technical Depth</span>
+                        <h3 class="text-3xl md:text-5xl font-bold group-hover:text-brand-green transition-colors">IT & Tech Services</h3>
+                        <p class="opacity-50 leading-relaxed text-lg">Empowering your business with robust technology solutions. We offer a wide range of IT services either on a one-off or retainer basis, from cloud infrastructure to bespoke software development.</p>
+                        <ul class="space-y-4 text-xs font-bold uppercase tracking-widest opacity-60">
+                            <li>• Web & Software Development</li>
+                            <li>• IT Infrastructure & Cloud</li>
+                            <li>• AI & Process Automation</li>
+                        </ul>
+                        <a href="it-services.html" class="inline-block pt-8 text-[10px] font-bold uppercase tracking-[0.3em] text-brand-red border-b border-brand-red/0 hover:border-brand-red/100 transition-all">Explore Technical Specs →</a>
+                    </div>
                 </div>
 
                 <!-- Digital Media -->
-                <div class="bento-card surgical-detail group">
-                    <h3 class="text-2xl font-bold mb-6 group-hover:text-brand-green transition-colors">Digital & Creative Services</h3>
-                    <p class="text-sm opacity-50 mb-10 leading-relaxed">Building your brand with creativity and strategic communication. Enhance your market presence with our comprehensive digital solutions.</p>
-                    <ul class="space-y-4 text-xs font-bold uppercase tracking-widest opacity-40 group-hover:opacity-100 transition-opacity">
-                        <li>• Brand Identity</li>
-                        <li>• Digital Marketing</li>
-                        <li>• Multimedia Production</li>
-                    </ul>
-                    <a href="digital-services.html" class="mt-12 inline-block text-[10px] font-bold uppercase tracking-[0.3em] text-brand-red">Creative Specs →</a>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-32 items-center group">
+                    <div class="space-y-8 md:order-first order-last">
+                        <span class="text-[10px] font-bold uppercase tracking-[0.3em] opacity-40">02 / Creative Excellence</span>
+                        <h3 class="text-3xl md:text-5xl font-bold group-hover:text-brand-green transition-colors">Digital & Creative</h3>
+                        <p class="opacity-50 leading-relaxed text-lg">Building your brand with creativity and strategic communication. Enhance your market presence with our comprehensive digital solutions, from brand identity to multimedia production.</p>
+                        <ul class="space-y-4 text-xs font-bold uppercase tracking-widest opacity-60">
+                            <li>• Brand Identity & Design</li>
+                            <li>• Digital Marketing Strategy</li>
+                            <li>• Multimedia Content Production</li>
+                        </ul>
+                        <a href="digital-services.html" class="inline-block pt-8 text-[10px] font-bold uppercase tracking-[0.3em] text-brand-red border-b border-brand-red/0 hover:border-brand-red/100 transition-all">Explore Creative Specs →</a>
+                    </div>
+                    <div class="aspect-[4/5] rounded-3xl overflow-hidden bg-black/[0.02] dark:bg-white/[0.02]">
+                        <img src="assets/digital_media.png" alt="Digital Media" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
+                    </div>
                 </div>
             </div>
         </div>
